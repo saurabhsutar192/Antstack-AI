@@ -16,12 +16,12 @@ $radial-gradient-light: radial-gradient(
 );
 $dark-gradient: linear-gradient(280.57deg, #2b4cae 4.92%, #042582 88.31%);
 $card-gradient: radial-gradient(
-    99.89% 101.01% at 98.73% 6.12%,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(52, 90, 202, 0.2) 100%
-  )
-  /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-
-/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
-
-/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+  99.89% 101.01% at 98.73% 6.12%,
+  rgba(255, 255, 255, 0.2) 0%,
+  rgba(52, 90, 202, 0.2) 100%
+);
+$title-gradient-light: radial-gradient(
+  100% 96.7% at 0% 3.3%,
+  #ccf1f9 0%,
+  #ccdaec 100%
+);

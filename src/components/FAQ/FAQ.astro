@@ -1,0 +1,16 @@
+---
+import { faqData } from "./utils/constants";
+import Question from "./Question/Question";
+import "./faq.styles.scss";
+---
+
+<div class="frequent_wrapper">
+  <h2>Frequently Asked Questions</h2>
+  <div class="frequent_container">
+    {
+      faqData.map((data) => {
+        return <Question client:only="react" data={data} />;
+      })
+    }
+  </div>
+</div>

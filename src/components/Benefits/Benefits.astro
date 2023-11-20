@@ -8,13 +8,13 @@ import TransparentCard from "./TransparentCard/TransparentCard.astro";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const benefitTexts = gsap.utils.toArray(".background h1");
+  const benefitTexts = gsap.utils.toArray(".text-background h1");
 
   gsap.to(benefitTexts, {
     xPercent: -150,
     ease: "none",
     scrollTrigger: {
-      trigger: ".benefits",
+      trigger: ".text-background",
       markers: true,
       start: "top top",
       pin: true,
@@ -26,7 +26,7 @@ import TransparentCard from "./TransparentCard/TransparentCard.astro";
   const transparentCards = gsap.utils.toArray(".transparent-card");
 
   gsap.to(transparentCards, {
-    xPercent: -535,
+    xPercent: -530,
     ease: "none",
     scrollTrigger: {
       trigger: ".benefit-cards",
@@ -40,7 +40,7 @@ import TransparentCard from "./TransparentCard/TransparentCard.astro";
 </script>
 
 <section class="benefits">
-  <div class="background">
+  <div class="text-background">
     <h1 class="hollow">Benefits</h1>
     <h1 class="solid">Benefits</h1>
     <h1 class="hollow">Benefits</h1>
@@ -73,7 +73,7 @@ import TransparentCard from "./TransparentCard/TransparentCard.astro";
     position: relative;
     overflow: hidden;
 
-    .background {
+    .text-background {
       padding: 18vw 0;
       overflow-x: hidden;
       display: flex;

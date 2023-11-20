@@ -1,0 +1,60 @@
+---
+import CaseCard from "./CaseCard/CaseCard.astro";
+import reSkill from "@/assets/caseStudies/reSkill.png";
+import divo from "@/assets/caseStudies/divo.png";
+import ps from "@/assets/caseStudies/ps.png";
+import bfas from "@/assets/caseStudies/bfas.png";
+---
+
+<section class="case-studies">
+  <h3>Case Studies</h3>
+  <div class="case-cards-container">
+    <CaseCard imgSrc={reSkill}>
+      A Leading Financial App Builder from Indonesia Goes Serverless with
+      AntStack
+    </CaseCard>
+    <CaseCard imgSrc={ps}>
+      A Leading Financial App Builder from Indonesia Goes Serverless with
+      AntStack
+    </CaseCard>
+    <CaseCard imgSrc={divo}>
+      A Leading Financial App Builder from Indonesia Goes Serverless with
+      AntStack
+    </CaseCard>
+    <CaseCard imgSrc={bfas}>
+      A Leading Financial App Builder from Indonesia Goes Serverless with
+      AntStack
+    </CaseCard>
+  </div>
+  <div class="button-container">
+    <button>View All</button>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "@/utils/_colors.scss";
+
+  .case-studies {
+    padding: 100px 150px;
+    h3 {
+      font-size: 2vw;
+    }
+    .case-cards-container {
+      margin: 30px 0;
+      gap: 20px;
+      display: flex;
+    }
+    .button-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      button {
+        color: $white;
+        background: $radial-gradient-dark;
+        padding: 15px 40px;
+        border-radius: 10px;
+        font-size: 1vw;
+      }
+    }
+  }
+</style>
