@@ -1,0 +1,109 @@
+---
+import TransparentCard from "./TransparentCard/TransparentCard.astro";
+---
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const benefitTexts = gsap.utils.toArray(".background h1");
+
+  gsap.to(benefitTexts, {
+    xPercent: -150,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".benefits",
+      markers: true,
+      start: "top top",
+      pin: true,
+      scrub: 1,
+      end: "+=3000",
+    },
+  });
+
+  const transparentCards = gsap.utils.toArray(".transparent-card");
+
+  gsap.to(transparentCards, {
+    xPercent: -535,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".benefit-cards",
+      markers: true,
+      start: "top top",
+      pin: true,
+      scrub: 1,
+      end: "+=3000",
+    },
+  });
+</script>
+
+<section class="benefits">
+  <div class="background">
+    <h1 class="hollow">Benefits</h1>
+    <h1 class="solid">Benefits</h1>
+    <h1 class="hollow">Benefits</h1>
+    <h1 class="solid">Benefits</h1>
+    <h1 class="hollow">Benefits</h1>
+    <h1 class="solid">Benefits</h1>
+    <h1 class="hollow">Benefits</h1>
+  </div>
+  <div class="benefit-cards">
+    <TransparentCard title="Cost Efficiency">
+      Drastically reduce operational expenses and minimize wastage with
+      streamlined, AI-driven processes.
+    </TransparentCard>
+    <TransparentCard title="Scalability">
+      Expand with confidence. Our solutions are designed to scale in tandem with
+      your growth aspirations.
+    </TransparentCard>
+    <TransparentCard title="AI-Ready">
+      Our modernization services ensure that your tech stack isn't just new but
+      AI-Ready, setting the stage for deeper insights and agile decision-making.
+    </TransparentCard>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "@/utils/_colors.scss";
+
+  .benefits {
+    overflow-x: hidden;
+    position: relative;
+    overflow: hidden;
+
+    .background {
+      padding: 18vw 0;
+      overflow-x: hidden;
+      display: flex;
+
+      h1 {
+        transform: translateX(-400px);
+        font-family: Arial;
+        font-weight: 900;
+        font-size: 10vw;
+        &.solid {
+          background: $dark-gradient;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        &.hollow {
+          -webkit-text-fill-color: transparent;
+          -webkit-text-stroke: 1px;
+        }
+      }
+    }
+    .benefit-cards {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      padding: 8vw 50%;
+      align-items: stretch;
+      gap: 10vw;
+    }
+  }
+</style>

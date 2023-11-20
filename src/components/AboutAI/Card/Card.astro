@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title = "" } = Astro.props;
+---
+
+<div class="card">
+  <h3>
+    {title}
+  </h3>
+  <p>
+    <slot />
+  </p>
+</div>
+
+<style lang="scss">
+    @import "@/utils/_colors.scss";
+    .card{
+        border:1px solid $white;
+        padding:30px;
+        display:flex;
+        flex-direction:column;
+        transition:0.2s ease;
+        align-self:stretch;
+        gap:20px;
+        flex:1;
+        h3{
+            font-size:1em;
+            font-weight:700;
+        }
+
+        &:hover{
+            background:$white;
+            color:$text-dark;
+            transition:0.2s ease;
+        }
+    }
+</style>

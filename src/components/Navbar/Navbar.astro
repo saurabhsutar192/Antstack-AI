@@ -1,0 +1,56 @@
+---
+import { navData } from "./constants";
+---
+
+<nav>
+  <div class="nav-container">
+    <div class="menu">
+      {
+        navData.map((data) => (
+          <a href={data.route} class="item">
+            {data.name}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="cta">
+      <button class="build-button">Build with us</button>
+    </div>
+  </div>
+</nav>
+
+<style lang="scss">
+  @import "@/utils/_colors.scss";
+
+  nav {
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px 40px;
+    font-size: 1em;
+    .nav-container {
+      padding: 20px 40px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .menu {
+        display: flex;
+        gap: 20px;
+      }
+      .cta {
+        .build-button {
+          padding: 10px 15px;
+          border-radius: 100px;
+          font-weight: 700;
+          border: none;
+          color: $white;
+          background-color: $accent-special;
+        }
+      }
+    }
+  }
+</style>

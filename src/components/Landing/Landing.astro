@@ -1,0 +1,91 @@
+<script>
+  import gsap from "gsap";
+  import { SteppedEase } from "gsap";
+
+  const typewriterTimeline = gsap.timeline();
+
+  typewriterTimeline
+    .from(".line", {
+      borderColor: "transparent",
+      repeat: -1,
+    })
+    .fromTo(
+      ".line.one",
+      { width: 0, padding: 0 },
+      {
+        width: "100%",
+        duration: 2,
+        ease: SteppedEase.config(37),
+      }
+    )
+    .to(".line.one", { borderRight: "none" })
+    .from(".line.two", { borderRight: "none", ease: "linear" }, "<")
+    .from(
+      ".line.two",
+      {
+        width: 0,
+        padding: 0,
+        ease: SteppedEase.config(15),
+        duration: 1,
+      },
+      ">0.2"
+    );
+</script>
+
+<main class="landing-container">
+  <div class="landing-content">
+    <div class="landing-text">
+      <h4 class="line one">Harness GenAI Potential with AI-Ready</h4>
+      <h4 class="line two">App & Data Moder</h4>
+    </div>
+    <div class="semi-circle"></div>
+  </div>
+</main>
+
+<style lang="scss">
+  @import "@/utils/_colors.scss";
+
+  .landing-container {
+    padding: 20px 40px 0 40px;
+    .landing-content {
+      border: 1px solid $accent-light;
+      background: url("src/assets/video-background.png") no-repeat;
+      background-size: cover;
+      padding: 20px;
+      border-radius: 20px 20px 0 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+
+      .landing-text {
+        padding: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 3vw;
+        .line {
+          // width: 0;
+          overflow: hidden;
+          border-right: 10px solid $text-dark;
+          padding-right: 10px;
+          white-space: nowrap;
+        }
+      }
+      .semi-circle {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform-origin: 50% 50%;
+        transform: translate(-50%, 50%);
+        width: 30%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 1px solid $accent-dark;
+        background: $radial-gradient-light;
+      }
+    }
+  }
+</style>
