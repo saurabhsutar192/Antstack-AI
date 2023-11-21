@@ -9,8 +9,14 @@ import Card from "./Card/Card.astro";
   gsap.registerPlugin(ScrollTrigger);
 
   gsap.from(".cards", {
-    scrollTrigger: ".cards",
-    y: 100,
+    scrollTrigger: {
+      trigger: ".cards-container",
+      start: "top 70%",
+      markers: true,
+    },
+    yPercent: 100,
+    duration: 1,
+    ease: "power2.out",
   });
 </script>
 
@@ -26,21 +32,24 @@ import Card from "./Card/Card.astro";
       decisions, streamlined operations, and superior customer engagement.
     </p>
   </div>
-  <div class="cards">
-    <Card title="Legacy Systems:">
-      The Innovation BlockersLegacy systems aren't just technologically
-      antiquated; they are innovation-stifling with their lack of flexibility
-      and scalability. This translates into a formidable barrier to adopting
-      GenAI capabilities, leading businesses to miss out on harnessing AI's
-      transformative power effectively.
-    </Card>
-    <div class="vs">vs</div>
-    <Card title="Revolutionizing with AntStack:">
-      AntStack's approach to application and data modernization is comprehensive
-      and future-forward. We meticulously tailor our services to ensure that
-      your transition from a legacy system to an AI-Ready infrastructure is not
-      just seamless but also a catalyst for enduring growth and innovation.
-    </Card>
+  <div class="cards-container">
+    <div class="cards">
+      <Card title="Legacy Systems:">
+        The Innovation BlockersLegacy systems aren't just technologically
+        antiquated; they are innovation-stifling with their lack of flexibility
+        and scalability. This translates into a formidable barrier to adopting
+        GenAI capabilities, leading businesses to miss out on harnessing AI's
+        transformative power effectively.
+      </Card>
+      <div class="vs">vs</div>
+      <Card title="Revolutionizing with AntStack:">
+        AntStack's approach to application and data modernization is
+        comprehensive and future-forward. We meticulously tailor our services to
+        ensure that your transition from a legacy system to an AI-Ready
+        infrastructure is not just seamless but also a catalyst for enduring
+        growth and innovation.
+      </Card>
+    </div>
   </div>
 </section>
 
@@ -50,30 +59,35 @@ import Card from "./Card/Card.astro";
   .about-ai {
     background: $dark-gradient;
     color: $white;
-    padding: 100px;
+    padding: 7vw;
 
     .content {
       text-align: center;
       h2 {
-        margin: 20px 0;
+        margin: 2vw 0;
         font-weight: 700;
-        font-size: 2em;
+        font-size: 2vw;
+      }
+      p {
+        font-size: 1.2vw;
+        line-height: 1.8vw;
       }
     }
     .cards {
-      padding: 50px;
+      padding: 5vw;
       display: flex;
       justify-content: center;
       align-items: center;
       .vs {
-        padding: 20px;
+        padding: 2vw;
+        font-size: 1.5vw;
         color: $text-dark;
         background: $white;
         border-radius: 50%;
         aspect-ratio: 1;
         font-weight: 700;
         height: fit-content;
-        margin: 30px;
+        margin: 3vw;
       }
     }
   }

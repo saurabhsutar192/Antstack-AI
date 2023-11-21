@@ -26,10 +26,10 @@ import TransparentCard from "./TransparentCard/TransparentCard.astro";
   const transparentCards = gsap.utils.toArray(".transparent-card");
 
   gsap.to(transparentCards, {
-    xPercent: -530,
+    xPercent: -480,
     ease: "none",
     scrollTrigger: {
-      trigger: ".benefit-cards",
+      trigger: ".benefits-cards-container",
       markers: true,
       start: "top top",
       pin: true,
@@ -49,19 +49,22 @@ import TransparentCard from "./TransparentCard/TransparentCard.astro";
     <h1 class="solid">Benefits</h1>
     <h1 class="hollow">Benefits</h1>
   </div>
-  <div class="benefit-cards">
-    <TransparentCard title="Cost Efficiency">
-      Drastically reduce operational expenses and minimize wastage with
-      streamlined, AI-driven processes.
-    </TransparentCard>
-    <TransparentCard title="Scalability">
-      Expand with confidence. Our solutions are designed to scale in tandem with
-      your growth aspirations.
-    </TransparentCard>
-    <TransparentCard title="AI-Ready">
-      Our modernization services ensure that your tech stack isn't just new but
-      AI-Ready, setting the stage for deeper insights and agile decision-making.
-    </TransparentCard>
+  <div class="benefits-cards-container">
+    <div class="benefit-cards">
+      <TransparentCard title="Cost Efficiency">
+        Drastically reduce operational expenses and minimize wastage with
+        streamlined, AI-driven processes.
+      </TransparentCard>
+      <TransparentCard title="Scalability">
+        Expand with confidence. Our solutions are designed to scale in tandem
+        with your growth aspirations.
+      </TransparentCard>
+      <TransparentCard title="AI-Ready">
+        Our modernization services ensure that your tech stack isn't just new
+        but AI-Ready, setting the stage for deeper insights and agile
+        decision-making.
+      </TransparentCard>
+    </div>
   </div>
 </section>
 
@@ -69,14 +72,15 @@ import TransparentCard from "./TransparentCard/TransparentCard.astro";
   @import "@/utils/_colors.scss";
 
   .benefits {
-    overflow-x: hidden;
-    position: relative;
     overflow: hidden;
+    position: relative;
 
     .text-background {
+      height: 100vh;
       padding: 18vw 0;
       overflow-x: hidden;
       display: flex;
+      align-items: center;
 
       h1 {
         transform: translateX(-400px);
@@ -95,15 +99,21 @@ import TransparentCard from "./TransparentCard/TransparentCard.astro";
         }
       }
     }
-    .benefit-cards {
+
+    .benefits-cards-container {
       position: absolute;
       left: 0;
       top: 0;
       display: flex;
-      justify-content: center;
-      padding: 8vw 50%;
-      align-items: stretch;
-      gap: 10vw;
+      align-items: center;
+      height: 100vh;
+      padding: 8vw 100%;
+      .benefit-cards {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 10vw;
+      }
     }
   }
 </style>

@@ -1,10 +1,13 @@
 ---
+import { Image } from "astro:assets";
 import { navData } from "./constants";
+import navLogo from "@/assets/nav-logo.svg";
 ---
 
 <nav>
   <div class="nav-container">
     <div class="menu">
+      <Image src={navLogo} alt="AntStack" />
       {
         navData.map((data) => (
           <a href={data.route} class="item">
@@ -29,22 +32,31 @@ import { navData } from "./constants";
     width: 100%;
     top: 0;
     left: 0;
-    padding: 20px 40px;
-    font-size: 1em;
+    padding: 1.5vw 3vw;
+    font-size: 1vw;
     .nav-container {
-      padding: 20px 40px;
+      padding: 1.5vw 3vw;
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       .menu {
         display: flex;
-        gap: 20px;
+        align-items: center;
+        gap: 1.5vw;
+        font-weight: 600;
+
+        img {
+          width: 10vw;
+          height: fit-content;
+          object-fit: cover;
+        }
       }
       .cta {
         .build-button {
-          padding: 10px 15px;
-          border-radius: 100px;
+          padding: 0.8vw 1.2vw;
+          border-radius: 1000px;
+          font-size: 1vw;
           font-weight: 700;
           border: none;
           color: $white;

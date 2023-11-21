@@ -1,0 +1,164 @@
+---
+import { Image } from "astro:assets";
+import antstackLogo from "@/assets/antstack-logo.svg";
+import { footerData } from "./utils/constants";
+import github from "@/assets/socialMedia/github.svg";
+import youtube from "@/assets/socialMedia/youtube.svg";
+import twitter from "@/assets/socialMedia/twitter.svg";
+import linkedIn from "@/assets/socialMedia/linkedIn.svg";
+import behance from "@/assets/socialMedia/behance.svg";
+import insta from "@/assets/socialMedia/insta.svg";
+import discord from "@/assets/socialMedia/discord.svg";
+import limitless from "@/assets/limitless.svg";
+import phone from "@/assets/phone.svg";
+---
+
+<footer>
+  <div class="footer-container">
+    <div class="info">
+      <Image class="logo" src={antstackLogo} alt="x" />
+      <div class="item">
+        <h3>Headquarters</h3>
+        <p>3500 S DuPont Hwy, Dover, Kent 19901, Delaware, USA</p>
+        <a>
+          <Image src={phone} alt="x" />
+           +1 302-219-4614
+        </a>
+      </div>
+      <div class="item">
+        <h3>Delivery Center</h3>
+        <p>
+          #620, 3rd Floor, Dr Rajkumar Rd, 2nd Block, 1st Main, Rajajinagar,
+          Bengaluru, Karnataka 560010
+        </p>
+        <a>
+          <Image src={phone} alt="x" />
+           080-41330449 / +91-9353139419
+        </a>
+      </div>
+    </div>
+    {
+      Object.keys(footerData).map((data) => (
+        <div class="data-column">
+          <h4>{data}</h4>
+          <div class="link-container">
+            {footerData[data].map((item) => (
+              <a href={item.link}>{item.name}</a>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+    <div class="social-media">
+      <div class="icon-container">
+        <Image src={github} alt="x" />
+        <Image src={youtube} alt="x" />
+        <Image src={twitter} alt="x" />
+        <Image src={linkedIn} alt="x" />
+        <Image src={behance} alt="x" />
+        <Image src={insta} alt="x" />
+        <Image src={discord} alt="x" />
+      </div>
+      <Image class="newsletter" src={limitless} alt="x" />
+    </div>
+  </div>
+  <p class="rights-reserved">© 2018 - 2022 ANTSTACK ALL RIGHTS RESERVED</p>
+</footer>
+
+<style lang="scss">
+  @import "@/utils/_colors.scss";
+  footer {
+    color: $black;
+    padding: 4vw 7vw;
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 2vw;
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5vw;
+        flex: 1.7;
+        padding-right: 5vw;
+        .logo {
+          width: 55%;
+          height: fit-content;
+          object-fit: cover;
+        }
+
+        .item {
+          h3 {
+            font-size: 1.2vw;
+          }
+          p,
+          a {
+            margin-top: 0.7vw;
+            font-size: 0.9vw;
+            line-height: 1.3vw;
+          }
+
+          a {
+            display: flex;
+            align-items: center;
+            img {
+              width: 0.9vw;
+              height: fit-content;
+              object-fit: cover;
+              margin-right: 0.5vw;
+            }
+            &:hover {
+              color: $accent-light;
+            }
+          }
+        }
+      }
+
+      .data-column {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2vw;
+        flex: 1;
+        font-size: 1.2vw;
+
+        .link-container {
+          display: flex;
+          flex-direction: column;
+          font-size: 1vw;
+          gap: 0.8vw;
+          a:hover {
+            color: $accent-light;
+          }
+        }
+      }
+
+      .social-media {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2vw;
+        .icon-container {
+          img {
+            width: 1.5vw;
+            height: fit-content;
+            object-fit: cover;
+          }
+          display: flex;
+          flex-wrap: wrap;
+          padding-right: 2vw;
+          gap: 1vw;
+        }
+        .newsletter {
+          width: 100%;
+          height: fit-content;
+          object-fit: cover;
+        }
+      }
+    }
+    .rights-reserved {
+      font-size: 0.8vw;
+      margin-top: 2.5vw;
+      font-weight: 300;
+      text-align: center;
+    }
+  }
+</style>

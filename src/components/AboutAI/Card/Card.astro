@@ -7,34 +7,35 @@ const { title = "" } = Astro.props;
 ---
 
 <div class="card">
-  <h3>
+  <h1>
     {title}
-  </h3>
+  </h1>
   <p>
     <slot />
   </p>
 </div>
 
 <style lang="scss">
-    @import "@/utils/_colors.scss";
-    .card{
-        border:1px solid $white;
-        padding:30px;
-        display:flex;
-        flex-direction:column;
-        transition:0.2s ease;
-        align-self:stretch;
-        gap:20px;
-        flex:1;
-        h3{
-            font-size:1em;
-            font-weight:700;
-        }
-
-        &:hover{
-            background:$white;
-            color:$text-dark;
-            transition:0.2s ease;
-        }
+  @import "@/utils/_colors.scss";
+  .card {
+    border: 1px solid $white;
+    padding: 2.5vw;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s ease;
+    align-self: stretch;
+    gap: 1.5vw;
+    flex: 1;
+    h1,
+    p {
+      font-size: 1.2vw;
+      line-height: 1.8vw;
     }
+
+    &:hover {
+      background: $white;
+      color: $text-dark;
+      transition: 0.2s ease;
+    }
+  }
 </style>
