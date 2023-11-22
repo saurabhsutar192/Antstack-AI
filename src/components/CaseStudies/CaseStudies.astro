@@ -1,30 +1,38 @@
 ---
 import CaseCard from "./CaseCard/CaseCard.astro";
-import reSkill from "@/assets/caseStudies/reSkill.png";
-import divo from "@/assets/caseStudies/divo.png";
-import ps from "@/assets/caseStudies/ps.png";
-import bfas from "@/assets/caseStudies/bfas.png";
+import { caseStudiesData } from "./utils/constants";
 ---
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const cards = gsap.utils.toArray(".case-card");
+
+  gsap.from(cards, {
+    scrollTrigger: {
+      trigger: ".case-cards-container",
+      markers: true,
+      scrub: 1,
+      start: "top 70%",
+      end: "bottom 100%",
+    },
+    yPercent: 100,
+    stagger: 0.1,
+    ease: "sine.out",
+  });
+</script>
 
 <section class="case-studies">
   <h3>Case Studies</h3>
   <div class="case-cards-container">
-    <CaseCard imgSrc={reSkill}>
-      A Leading Financial App Builder from Indonesia Goes Serverless with
-      AntStack
-    </CaseCard>
-    <CaseCard imgSrc={ps}>
-      A Leading Financial App Builder from Indonesia Goes Serverless with
-      AntStack
-    </CaseCard>
-    <CaseCard imgSrc={divo}>
-      A Leading Financial App Builder from Indonesia Goes Serverless with
-      AntStack
-    </CaseCard>
-    <CaseCard imgSrc={bfas}>
-      A Leading Financial App Builder from Indonesia Goes Serverless with
-      AntStack
-    </CaseCard>
+    {
+      caseStudiesData.map((data) => (
+        <CaseCard imgSrc={data.img}>{data.desc}</CaseCard>
+      ))
+    }
   </div>
   <div class="button-container">
     <button>View All</button>

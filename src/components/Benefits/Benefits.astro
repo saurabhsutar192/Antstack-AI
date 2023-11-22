@@ -1,5 +1,6 @@
 ---
 import TransparentCard from "./TransparentCard/TransparentCard.astro";
+import { benefitsData } from "./utils/constants";
 ---
 
 <script>
@@ -41,29 +42,22 @@ import TransparentCard from "./TransparentCard/TransparentCard.astro";
 
 <section class="benefits">
   <div class="text-background">
-    <h1 class="hollow">Benefits</h1>
-    <h1 class="solid">Benefits</h1>
-    <h1 class="hollow">Benefits</h1>
-    <h1 class="solid">Benefits</h1>
-    <h1 class="hollow">Benefits</h1>
-    <h1 class="solid">Benefits</h1>
-    <h1 class="hollow">Benefits</h1>
+    {
+      benefitsData.map(() => (
+        <>
+          <h1 class="hollow">Benefits</h1>
+          <h1 class="solid">Benefits</h1>
+        </>
+      ))
+    }
   </div>
   <div class="benefits-cards-container">
     <div class="benefit-cards">
-      <TransparentCard title="Cost Efficiency">
-        Drastically reduce operational expenses and minimize wastage with
-        streamlined, AI-driven processes.
-      </TransparentCard>
-      <TransparentCard title="Scalability">
-        Expand with confidence. Our solutions are designed to scale in tandem
-        with your growth aspirations.
-      </TransparentCard>
-      <TransparentCard title="AI-Ready">
-        Our modernization services ensure that your tech stack isn't just new
-        but AI-Ready, setting the stage for deeper insights and agile
-        decision-making.
-      </TransparentCard>
+      {
+        benefitsData.map((data) => (
+          <TransparentCard title={data.title}>{data.desc}</TransparentCard>
+        ))
+      }
     </div>
   </div>
 </section>
